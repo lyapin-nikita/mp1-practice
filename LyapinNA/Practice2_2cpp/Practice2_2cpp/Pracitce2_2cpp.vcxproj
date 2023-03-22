@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{65972763-08df-4efe-b11a-c0a547e5b324}</ProjectGuid>
-    <RootNamespace>Practice21c2try</RootNamespace>
+    <ProjectGuid>{af1267f9-282c-4c0e-bc82-ca3ec14f23e7}</ProjectGuid>
+    <RootNamespace>Pracitce22cpp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Practice2_2cpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,8 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cmain.c" />
-    <ClCompile Include="func.c" />
+    <ClCompile Include="func.cpp" />
+    <ClCompile Include="maincode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="func.h" />
