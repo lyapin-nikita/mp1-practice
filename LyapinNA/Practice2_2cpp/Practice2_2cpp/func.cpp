@@ -20,6 +20,49 @@ ifstream read_list(string path) {
 
 
 
+int count_vacancy(ifstream& read) {
+	string line;
+	int count = 0, countVacancy = 0;
+
+	while (getline(read, line))
+		++count;
+
+	//Определение числа вакансий
+	countVacancy = count / N;
+	if (countVacancy == 0) {
+		cerr << "Error: Число вакансий не может быть равным 0!";
+		return 1;
+	}
+	else
+		cout << "Число найденных вакансий: " << countVacancy << endl;
+
+	return countVacancy;
+}
+
+
+
+
+
+vacancy* fill_struct(ifstream& read, int countVacancy) {
+	vacancy* Vacancy = new vacancy[countVacancy];
+
+	read.clear();
+	read.seekg(0);
+	int i = 0;
+	for (; i < countVacancy; i++) {
+		getline(read, Vacancy[i].employee);
+		getline(read, Vacancy[i].nameCompany);
+		getline(read, Vacancy[i].salary);
+		getline(read, Vacancy[i].workCond);
+		getline(read, Vacancy[i].request);
+	}
+
+	return Vacancy;
+}
+
+
+
+
 
 int search_vacancy(vacancy* Vacancy, int countVacancy) {
 	int j = 0, k = 0;

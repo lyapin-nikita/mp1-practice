@@ -8,6 +8,9 @@
 using namespace std;
 
 
+
+
+
 struct vacancy {
 	string employee;
 	string nameCompany;
@@ -17,6 +20,11 @@ struct vacancy {
 };
 
 
+
+
+
 ifstream read_list(string path); 
+int count_vacancy(ifstream& read);
+vacancy* fill_struct(ifstream& read, int countVacancy);
 int search_vacancy(vacancy* Vacancy, int countVacancy);
 void print_info(vacancy* Vacancy, int countSearchedVacancy, int* indexes, int countVacancy);
