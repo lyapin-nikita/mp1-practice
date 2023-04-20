@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{af1267f9-282c-4c0e-bc82-ca3ec14f23e7}</ProjectGuid>
-    <RootNamespace>Pracitce22cpp</RootNamespace>
+    <ProjectGuid>{bc7fe074-614b-4d58-b3fa-151801d64bea}</ProjectGuid>
+    <RootNamespace>Practice24</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Practice2_2cpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="func.cpp" />
-    <ClCompile Include="maincode.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="product.cpp" />
+    <ClCompile Include="product_receipt.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="func.h" />
+    <ClInclude Include="product.h" />
+    <ClInclude Include="product_receipt.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
