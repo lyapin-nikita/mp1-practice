@@ -130,11 +130,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="product.cpp" />
     <ClCompile Include="product_receipt.cpp" />
+    <ClCompile Include="receipt.cpp" />
+    <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="product.h" />
     <ClInclude Include="product_receipt.h" />
+    <ClInclude Include="receipt.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
