@@ -7,4 +7,8 @@ protected:
 public:
 	static int sum;
 	Creceipt();
+
+
+
+	friend ostream& operator << (ostream& os, const Creceipt& cl);
 };
