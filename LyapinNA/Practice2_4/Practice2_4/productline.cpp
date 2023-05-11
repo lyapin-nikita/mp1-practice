@@ -11,6 +11,7 @@ productline::productline()
 	if (!read) 
 	{
 		cout << "Файл не был открыт!" << endl;
+		throw -1;
 	}
 	else 
 	{
@@ -23,7 +24,7 @@ productline::productline()
 		}
 	}
 
-
+	
 	read.close();
 }
 

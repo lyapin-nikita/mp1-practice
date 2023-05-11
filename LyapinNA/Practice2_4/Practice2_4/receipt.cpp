@@ -10,8 +10,14 @@ Creceipt::Creceipt()
 {
 	sum++;
 	num = sum;
+	Products = nullptr;
 }
 
+
+Creceipt::~Creceipt() 
+{
+	delete[] Products;
+}
 
 
 ostream& operator << (ostream& os, const Creceipt& cl) {

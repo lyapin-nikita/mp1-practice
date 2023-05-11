@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="product.cpp" />
     <ClCompile Include="productline.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Container.h" />
     <ClInclude Include="product.h" />
     <ClInclude Include="productline.h" />
     <ClInclude Include="receipt.h" />

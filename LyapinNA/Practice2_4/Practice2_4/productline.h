@@ -1,11 +1,11 @@
 #pragma once
 
 
-class productline{
+class productline : public Creceipt{
 protected:
-	int count;
-	product* Products = new product[count]; // сделать заполнение массива данными
+	product* Products; // сделать заполнение массива данными
 public:
+	int count;
 	productline();
 	~productline();
 };
