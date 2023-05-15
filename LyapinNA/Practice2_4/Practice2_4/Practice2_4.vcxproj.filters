@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="productline.cpp">
+    <ClCompile Include="product_receipt.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="product.cpp">
@@ -35,7 +35,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="productline.h">
+    <ClInclude Include="product_receipt.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="product.h">
@@ -47,8 +47,5 @@
     <ClInclude Include="receipt.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="list.txt" />
   </ItemGroup>
 </Project>

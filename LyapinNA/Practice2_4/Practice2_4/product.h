@@ -2,7 +2,7 @@
 
 
 class product {
-protected:
+private:
 	string name;
 	string barcode;
 	uint16_t price;
@@ -17,6 +17,4 @@ public:
 	string getName();
 	string getBarcode();
 	uint16_t getPrice();
-
-
 };
