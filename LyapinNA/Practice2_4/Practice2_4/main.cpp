@@ -30,23 +30,31 @@ private:
 
 	node<T>* Head;
 	int size; 
+	int step;
 
 public:
 
 
 	test_list();
+	test_list(int sizeOfList, int newStep = 5);
 	~test_list();
 
 	void push_back(T data);
 	void push_front(T data);
+	void push_index(T data, int ind);
 	void push_indexN(T data, int ind);
 	void push_indexE(T data, int ind);
 	void pop_back();
 	void pop_front();
 	void pop_index(int ind);
-	int get_size();
+	void clear_and_resize(int newSize);
+	void realloc(int newStep = 0);
 	void output_elements();
 	void clear();
+
+	int getSize();
+	void setStep(int newStep);
+	int getStep();
 
 	T& operator [](const int index);
 	
@@ -68,10 +76,10 @@ int main(void) {
 	Creceipt test5;
 	cout << test3.sum << endl; //3
 
-	test_list<Ctime> test6;
-	cout << test6.get_size() << endl;
-	test6.push_back(test1);
-	test6.output_elements();
+	test_list<int> test6(3);
+	test6.realloc();
+	test6.pop_back();
+	
 
 	return 0;
 }
@@ -81,7 +89,16 @@ template<typename T>
 test_list<T>::test_list()
 {
 	size = 0;
+	step = 5;
 	Head = nullptr;
+}
+
+template<typename T>
+test_list<T>::test_list(int sizeOfList, int newStep)
+{
+	this->step = newStep;
+	for (int i = 0; i < sizeOfList; i++)
+		push_front(T());
 }
 
 template<typename T>
@@ -115,22 +132,44 @@ void test_list<T>::push_front(T data)
 }
 
 template<typename T>
-void test_list<T>::push_indexN(T data, int ind)
+void test_list<T>::push_index(T data, int ind)
 {
 	if ((ind < 0) || (ind >= size)) throw - 1;
-	if (Head == nullptr) Head = new node<T>(data);
+	if (ind == 0) 
+	{
+		node<T>* New_Node = new node<T>(data);
+		New_Node->node_next = Head->node_next;
+		Head = New_Node;
+	} 
 	else
 	{
 		int i = 0;
 		node<T>* Current = this->Head;
 		node<T>* New_Node = new node<T>(data);
-		for (; (i != ind); i++)
+		for (; i != ind - 1; i++)
 		{
 			Current = Current->node_next;
 		}
-		New_Node->node_next = Current->node_next;
+		New_Node->node_next = Current->node_next->node_next;
 		Current->node_next = New_Node;
 	}
+}
+
+template<typename T>
+void test_list<T>::push_indexN(T data, int ind)
+{
+	if ((ind < 0) || (ind >= size)) throw - 1;
+	
+	int i = 0;
+	node<T>* Current = this->Head;
+	node<T>* New_Node = new node<T>(data);
+	for (; (i != ind); i++)
+	{
+		Current = Current->node_next;
+	}
+	New_Node->node_next = Current->node_next;
+	Current->node_next = New_Node;
+	
 	size++;
 }
 
@@ -211,9 +250,36 @@ void test_list<T>::pop_index(int ind)
 }
 
 template<typename T>
-int test_list<T>::get_size()
+void test_list<T>::clear_and_resize(int newSize)
+{
+	clear();
+	for (int i = 0; i < newSize; i++)
+		push_front(T());
+}
+
+template<typename T>
+void test_list<T>::realloc(int newStep)
+{
+	int localStep = (newStep == 0) ? (localStep = step) : localStep = newStep;
+	for (int i = 0; i < localStep; i++) push_back(T());
+}
+
+template<typename T>
+int test_list<T>::getSize()
 {
 	return this->size;
+}
+
+template<typename T>
+void test_list<T>::setStep(int newStep)
+{
+	this->step = newStep;
+}
+
+template<typename T>
+int test_list<T>::getStep()
+{
+	return this->step;
 }
 
 template<typename T>
