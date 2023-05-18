@@ -9,10 +9,10 @@
 #include "stdafx.h"
 
 template <typename T>
-class test_list
+class ListContainer
 {
 private:
-	
+
 	//one element
 	template <typename T>
 	struct node
@@ -29,15 +29,15 @@ private:
 
 
 	node<T>* Head;
-	int size; 
+	int size;
 	int step;
 
 public:
 
 
-	test_list();
-	test_list(int sizeOfList, int newStep = 5);
-	~test_list();
+	ListContainer();
+	ListContainer(int sizeOfList, int newStep = 5);
+	~ListContainer();
 
 	void push_back(T data);
 	void push_front(T data);
@@ -57,36 +57,46 @@ public:
 	int getStep();
 
 	T& operator [](const int index);
-	
+
 };
+
 
 
 
 int main(void) {
 	system("chcp 1251");
 
-	Ctime test1;
-	cout << test1 << endl;
 
-	CData test2;
-	cout << test2 << endl;
+	Creceipt testReceipt1;
+	cout << testReceipt1.day;
+	cout << testReceipt1.hour;
 
-	Creceipt test3;
-	Creceipt test4;
-	Creceipt test5;
-	cout << test3.sum << endl; //3
+	/*ListContainer <int> test;
+	test.push_back(4);
+	test.push_back(5);
+	test.output_elements();*/
 
-	test_list<int> test6(3);
-	test6.realloc();
-	test6.pop_back();
+	//Ctime test1;
+	//cout << test1 << endl;
+
+	//CData test2;
+	//cout << test2 << endl;
+
+	//Creceipt test3;
+	//Creceipt test4;
+	//Creceipt test5;
+	//cout << test3.sum << endl; //3
+
+	//ListContainer<int> test6(3);
+	//test6.realloc();
+	//test6.pop_back();
 	
 
 	return 0;
 }
 
-
 template<typename T>
-test_list<T>::test_list()
+ListContainer<T>::ListContainer()
 {
 	size = 0;
 	step = 5;
@@ -94,7 +104,7 @@ test_list<T>::test_list()
 }
 
 template<typename T>
-test_list<T>::test_list(int sizeOfList, int newStep)
+ListContainer<T>::ListContainer(int sizeOfList, int newStep)
 {
 	this->step = newStep;
 	for (int i = 0; i < sizeOfList; i++)
@@ -102,19 +112,19 @@ test_list<T>::test_list(int sizeOfList, int newStep)
 }
 
 template<typename T>
-test_list<T>::~test_list()
+ListContainer<T>::~ListContainer()
 {
 	clear();
 }
 
 template<typename T>
-void test_list<T>::push_back(T data)
+void ListContainer<T>::push_back(T data)
 {
-	if (Head == nullptr) 
+	if (Head == nullptr)
 	{
 		Head = new node<T>(data);
 	}
-	else 
+	else
 	{
 		node<T>* Current = this->Head;
 		while (Current->node_next != nullptr) Current = Current->node_next;
@@ -124,23 +134,23 @@ void test_list<T>::push_back(T data)
 }
 
 template<typename T>
-void test_list<T>::push_front(T data)
+void ListContainer<T>::push_front(T data)
 {
-	if (Head == nullptr) Head = new node<T>(data);	
+	if (Head == nullptr) Head = new node<T>(data);
 	else Head = new node<T>(data, Head);
 	size++;
 }
 
 template<typename T>
-void test_list<T>::push_index(T data, int ind)
+void ListContainer<T>::push_index(T data, int ind)
 {
 	if ((ind < 0) || (ind >= size)) throw - 1;
-	if (ind == 0) 
+	if (ind == 0)
 	{
 		node<T>* New_Node = new node<T>(data);
 		New_Node->node_next = Head->node_next;
 		Head = New_Node;
-	} 
+	}
 	else
 	{
 		int i = 0;
@@ -156,10 +166,10 @@ void test_list<T>::push_index(T data, int ind)
 }
 
 template<typename T>
-void test_list<T>::push_indexN(T data, int ind)
+void ListContainer<T>::push_indexN(T data, int ind)
 {
 	if ((ind < 0) || (ind >= size)) throw - 1;
-	
+
 	int i = 0;
 	node<T>* Current = this->Head;
 	node<T>* New_Node = new node<T>(data);
@@ -169,16 +179,16 @@ void test_list<T>::push_indexN(T data, int ind)
 	}
 	New_Node->node_next = Current->node_next;
 	Current->node_next = New_Node;
-	
+
 	size++;
 }
 
 template<typename T>
-void test_list<T>::push_indexE(T data, int ind)
+void ListContainer<T>::push_indexE(T data, int ind)
 {
 	if ((ind < 0) || (ind > size)) throw - 1;
 	if (Head == nullptr) Head = new node<T>(data);
-	else 
+	else
 	{
 		if (ind == 0)
 		{
@@ -188,7 +198,7 @@ void test_list<T>::push_indexE(T data, int ind)
 		}
 		else
 		{
-			
+
 			int i = 0;
 			node<T>* Current = this->Head;
 			node<T>* New_Node = new node<T>(data);
@@ -198,17 +208,17 @@ void test_list<T>::push_indexE(T data, int ind)
 			}
 			New_Node->node_next = Current->node_next;
 			Current->node_next = New_Node;
-			
+
 		}
 	}
 	size++;
 }
 
 template<typename T>
-void test_list<T>::pop_back()
+void ListContainer<T>::pop_back()
 {
 	if (Head == nullptr) throw - 2;
-	if (Head->node_next == nullptr) 
+	if (Head->node_next == nullptr)
 	{
 		Head = nullptr;
 		delete Head;
@@ -224,7 +234,7 @@ void test_list<T>::pop_back()
 }
 
 template<typename T>
-void test_list<T>::pop_front()
+void ListContainer<T>::pop_front()
 {
 	if (Head == nullptr) throw - 2;
 	node<T>* Current = this->Head;
@@ -234,12 +244,12 @@ void test_list<T>::pop_front()
 }
 
 template<typename T>
-void test_list<T>::pop_index(int ind)
+void ListContainer<T>::pop_index(int ind)
 {
 	int i = 0;
 	if ((ind < 0) || (ind >= size)) throw - 1;
 	node<T>* Current = this->Head;
-	for (; (i != ind-1); i++)
+	for (; (i != ind - 1); i++)
 	{
 		Current = Current->node_next;
 	}
@@ -250,7 +260,7 @@ void test_list<T>::pop_index(int ind)
 }
 
 template<typename T>
-void test_list<T>::clear_and_resize(int newSize)
+void ListContainer<T>::clear_and_resize(int newSize)
 {
 	clear();
 	for (int i = 0; i < newSize; i++)
@@ -258,32 +268,32 @@ void test_list<T>::clear_and_resize(int newSize)
 }
 
 template<typename T>
-void test_list<T>::realloc(int newStep)
+void ListContainer<T>::realloc(int newStep)
 {
 	int localStep = (newStep == 0) ? (localStep = step) : localStep = newStep;
 	for (int i = 0; i < localStep; i++) push_back(T());
 }
 
 template<typename T>
-int test_list<T>::getSize()
+int ListContainer<T>::getSize()
 {
 	return this->size;
 }
 
 template<typename T>
-void test_list<T>::setStep(int newStep)
+void ListContainer<T>::setStep(int newStep)
 {
 	this->step = newStep;
 }
 
 template<typename T>
-int test_list<T>::getStep()
+int ListContainer<T>::getStep()
 {
 	return this->step;
 }
 
 template<typename T>
-void test_list<T>::output_elements()
+void ListContainer<T>::output_elements()
 {
 	node<T>* Current = this->Head;
 	for (int count = 0; count < size; count++)
@@ -295,7 +305,7 @@ void test_list<T>::output_elements()
 }
 
 template<typename T>
-void test_list<T>::clear()
+void ListContainer<T>::clear()
 {
 	while (size)
 	{
@@ -304,9 +314,9 @@ void test_list<T>::clear()
 }
 
 template<typename T>
-T& test_list<T>::operator[](const int index)
+T& ListContainer<T>::operator[](const int index)
 {
-	if ((index >= size) || (index < 0)) throw -1;
+	if ((index >= size) || (index < 0)) throw - 1;
 
 	int count = 0;
 	node<T>* Current = this->Head;

@@ -129,12 +129,14 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="product.cpp" />
+    <ClCompile Include="product_base.cpp" />
     <ClCompile Include="product_receipt.cpp" />
     <ClCompile Include="receipt.cpp" />
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="product.h" />
+    <ClInclude Include="product_base.h" />
     <ClInclude Include="product_receipt.h" />
     <ClInclude Include="receipt.h" />
     <ClInclude Include="stdafx.h" />
