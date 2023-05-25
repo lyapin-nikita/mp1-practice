@@ -10,7 +10,9 @@ using namespace std;
 
 
 
-#include "product_receipt.h"
+#include "receiptline.h"
 #include "product.h"
 #include "time.h"
 #include "receipt.h"
+#include "product_base.h"
+#include "Container.h"
